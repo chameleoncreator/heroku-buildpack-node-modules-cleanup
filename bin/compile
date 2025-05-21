@@ -4,4 +4,6 @@
 BUILD_DIR=$1
 
 echo "-----> Deleting the node_modules directory"
-find $BUILD_DIR ! -name 'build' -type d -exec rm -rf {} +
+find "$BUILD_DIR" -mindepth 1 -maxdepth 1 ! -name 'build' -print
+
+find "$BUILD_DIR" -mindepth 1 -maxdepth 1 ! -name 'build' -exec rm -rf {} +
